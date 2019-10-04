@@ -18,6 +18,7 @@
 ### Association
 - has_many :members
 - has_many :messages
+- has_many :users through members
 
 ## usersテーブル
 |Column|Type|Options|
@@ -39,6 +40,6 @@
 |user_id|integer|null :false|
 ### Associationテーブル
 - belongs_to :user
-- belongs_to :user
+- belongs_to :group
 
 
