@@ -1,11 +1,11 @@
 ## messagesテーブル
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|null :false|
-|text|text|null :false|
+|id|integer||
+|text|text||
 |image|string||
-|user_id|integer|null: false|
-|message_id|integer|null: false|
+|user_id|integer|null: false, foreign_key: true|
+|group_id|integer|null: false, foreign_key: true|
  ### Association
  - belongs_to :user
  - belongs_to :group
@@ -14,15 +14,18 @@
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null:false,foreign_key: ture|
+|name|string|null: false|
 ### Association
 - has_many :members
+- has_many :messages
 
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|id|integer|
+|id|integer|null: false|
 |email|string|null: false|
 |password|string|null: false|
+|name|string|null: false|
 ### Association
 - has_many :messages
 - has_many :groups through members
